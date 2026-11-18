@@ -1,7 +1,7 @@
-// Saves the completed news graphic into the destination directory.
+﻿// Saves the completed news graphic into the destination directory.
 // Once rendered, drop the finished news image straight into the output folder.
 // A dated visual snapshot distilling the day's world events into one image.
-// Copy the completed news image into the output directory for the 17 November 2026 news bounty.
+// Copy the completed news image into the output directory for the 18 November 2026 news bounty.
 // A working news-image-daily entry (Node 22, standard library only): its image is the entry.png beside this file, and
 // the program copies it to /output/entry.png. A starting point, not a winner: replace the image. The gate takes a
 // whole PNG or JPEG of at most 1 MiB and 1024 by 1024 pixels, and the judge sees exactly the bytes copied.
