@@ -1,4 +1,511 @@
 ﻿// Saves the completed news graphic into the destination directory.
+//
+// ============================================================================
+// NOTES ON BUILDING A DATED NEWS IMAGE
+// A long, informal set of remarks written for whoever reads this file next.
+// None of this changes behaviour; it is only here to explain the thinking.
+// ============================================================================
+//
+// The idea behind a dated news image is simple to state and fussy to build.
+// You take one moment in time, you gather what is known about it, and you
+// compress that knowledge into a single frame a reader can absorb in seconds.
+// The date is not decoration. The date is the spine of the whole thing.
+// Everything else hangs off it, and if the date is wrong the rest is rubble.
+//
+// I keep coming back to the morning of the eighteenth of November, 2026.
+// It was an ordinary Wednesday in the middle of an ordinary week, which is
+// exactly the sort of day where the news still finds a way to matter.
+// Nothing about a midweek date guarantees calm. History rarely checks the
+// calendar before deciding to make a mess of things.
+//
+// When I say "the events of that day," I mean the messy bundle we all carry:
+// the headlines that broke before lunch, the ones that kept unspooling after,
+// the small corrections nobody notices, the follow-ups that rewrite the tone
+// of an earlier story without ever saying so out loud.
+//
+// A single day is already a crowd of facts. A single image has to pick a few.
+// That picking is the craft. It is also where honesty gets tested.
+//
+// Let me start with why a dated visual summary exists at all.
+//
+// Readers are busy. Readers are suspicious. Readers scroll faster than they
+// read and they remember shapes better than sentences.
+// A dense paragraph about a complicated day can be excellent and still lose
+// to a clean picture that fences the same day into three clear beats.
+//
+// Compression is not the enemy of truth. Lazy compression is.
+// If you shrink a story down to a slogan, you have not summarised it, you have
+// replaced it with a different and usually worse story.
+//
+// So the first rule I hold onto is this: the image may simplify, but it must
+// not distort. There is a wide gulf between those two verbs.
+//
+// Simplify means: remove the noise, keep the signal, keep the proportions.
+// Distort means: bend the signal so it reads as something it is not.
+//
+// The second rule is that the image should be honest about its own edges.
+// Every summary has a boundary. A good one quietly tells you where that
+// boundary sits, so you know you are looking at a slice and not the whole loaf.
+//
+// A date in a corner does a lot of that work on its own. It frames the claim.
+// It says, gently, that this is true of this day and not of every day.
+//
+// Now let me talk about how a dated visual summary actually gets built, in
+// the order I tend to do it, though the order shifts depending on the day.
+//
+// Step one is collection. I read widely before I commit to anything.
+// I gather more than I will use. The surplus is not waste; it is context.
+// A fact looks different once you know three neighbouring facts.
+//
+// Step two is triage. Some items are load-bearing and some are texture.
+// Load-bearing facts change what a reader thinks. Texture facts make the
+// picture human. A summary with only load-bearing facts feels like a ledger.
+// A summary with only texture feels like gossip. You want both, weighted.
+//
+// Step three is ordering. What comes first teaches the reader how to read
+// the rest. If you open with the smallest story, you have told them the day
+// was small. If you open with the biggest, you have told them that too.
+// Order is argument. There is no neutral sequence.
+//
+// Step four is drafting the visual. Blocks, columns, a headline, a caption.
+// I sketch rough boxes long before I touch colour, because structure survives
+// restyling and style does not survive bad structure.
+//
+// Step five is the colour pass. This is where a lot of people go wrong.
+// They reach for colour as mood paint instead of as information.
+//
+// Colour in a news graphic should carry meaning first.
+// If a hue tells you which section you are in, it is earning its place.
+// If it merely makes the thing look energetic, it is decoration, and
+// decoration that competes with content is a net loss.
+//
+// I like a restrained palette. Two or three anchor colours, one accent.
+// The anchors do the structural work. The accent points at the one thing
+// you most want the reader to notice. When everything shouts, nothing lands.
+//
+// Contrast is not aesthetics, it is access. Text that is pretty but faint is
+// a wall for anyone with tired eyes, a cracked screen, or bright sunlight.
+// I test the foreground against the background as if it had to survive a
+// phone held at arm's length on a bus.
+//
+// Size carries hierarchy. The biggest word should be the truest summary of
+// the day, not the most clickable. If those two ever diverge, the truest
+// one wins in a document like this.
+//
+// Whitespace is content. It gives the eye somewhere to rest and it gives
+// each idea a chance to stand alone instead of bleeding into its neighbour.
+// Crowding a frame does not add information; it subtracts attention.
+//
+// Let me talk about layout in a bit more depth, since it is where the day
+// either becomes legible or turns into a jumble.
+//
+// I think of a layout as a set of promises. The reader learns the promises
+// in the first second and then trusts them for the rest of the glance.
+// Break one promise, and the reader has to re-learn the frame mid-scan.
+// Re-learning is friction, and friction is where readers leave.
+//
+// A promise might be: headlines live at the top-left. Or: dates are always
+// in the same corner. Or: each section is separated by the same gutter.
+// Consistency is not dullness; it is the thing that lets a reader relax.
+//
+// Columns are a good friend here, because a column is a promise about
+// reading direction. In a left-to-right script the eye expects to travel
+// across, drop, and return. Columns respect that rhythm.
+//
+// Grids are the scaffolding under the columns. I rarely see the grid, but a
+// broken grid is instantly felt, the way a crooked picture frame is felt
+// before it is seen.
+//
+// Alignment is the quietest element and the most revealing. When things line
+// up, the frame reads as calm and intentional. When they almost line up,
+// it reads as sloppy even when no one can name why.
+//
+// Balance does not mean symmetry. An asymmetric frame can be more balanced
+// than a mirrored one, because weight is about mass and contrast, not about
+// counting objects on each side of a line.
+//
+// Now, readability. I separate two questions that people often merge.
+// Can the reader see it at all? And can the reader understand it quickly?
+//
+// The first is legibility: size, contrast, spacing, weight.
+// The second is comprehension: word choice, sentence length, ordering.
+// A frame can be perfectly legible and completely incomprehensible.
+//
+// For legibility I care about type size relative to the final display size.
+// A layout that works on a wall poster can fail as a thumbnail and the
+// reverse is just as true. Design for the smallest plausible viewing.
+//
+// For comprehension I care about the first five words of every label.
+// If a reader only reads five words per item, those five words must carry
+// the meaning. Front-load the subject and the verb. Bury the caveats.
+//
+// Jargon is a tax. Sometimes the tax is unavoidable, because the event
+// genuinely needs a precise term. Pay it once, explain it once, move on.
+// Do not pay it on every line just because it sounds official.
+//
+// Numbers deserve special care. A number without a unit is a rumour.
+// A number without a comparison is a mood. A number without a date is a
+// trap waiting for a careful reader to fall into.
+//
+// Percentages and absolute counts tell different stories. Ten percent of a
+// tiny group is small; ten percent of a huge group is enormous. Show which
+// one you mean, or you have chosen silently and you own that choice.
+//
+// Rounding is a small honesty test. Rounding up for drama shades into lying.
+// Rounding for clarity is fine as long as the rounding is disclosed and
+// does not change the conclusion a reader would draw from the exact figure.
+//
+// Attribution matters as much as the fact. Who said this, and when?
+// A quote stripped of its source is not a fact, it is a flavour of assertion.
+// Even a tiny byline or a "per so-and-so" repays the space it takes.
+//
+// Let me step back and talk about why accuracy is not just a virtue here.
+//
+// A news image is a strange object. It looks authoritative by default.
+// The polish of a designed frame silently vouches for the content inside it.
+// Readers extend trust to the form before they extend it to the facts.
+//
+// That asymmetry is a responsibility. If I put a false claim in a plain
+// sentence, a reader may doubt it. If I put the same false claim in a
+// confident, well-set graphic, the reader may not even think to doubt it.
+//
+// So I treat the polish as borrowed authority that must be repaid in rigour.
+// Every claim gets a mental checkpoint: do I actually know this, or have I
+// heard it often enough that it feels like knowing?
+//
+// Familiarity is not evidence. Repetition is not evidence. Confidence in a
+// source is not evidence either, though it is a reasonable prior.
+//
+// When I cannot verify, I say less. A smaller true frame beats a larger
+// uncertain one. Admitting the edge of what I know is not weakness; it is
+// the only honest way to draw a boundary around a day.
+//
+// Corrections are part of the lifecycle. The eighteenth of November, like
+// any day, produced stories that shifted as more came to light. A snapshot
+// taken at noon is not the snapshot taken at midnight, and pretending
+// otherwise misleads readers who saw the early version.
+//
+// Timestamps inside the frame help. "As of such-and-such an hour" is a
+// small phrase that does enormous work, because it tells the reader which
+// version of the day they are holding.
+//
+// Now let me wander into the day itself a bit more, in the way a person
+// actually remembers a news day rather than the way a wire service files it.
+//
+// The eighteenth of November, 2026 had the usual shape of a working day.
+// Early updates, a mid-morning rush, an afternoon lull, an evening wave
+// when the desk reporters filed and the talking heads caught up.
+//
+// Different audiences saw different days. A reader at breakfast met one set
+// of stories; a reader at dinner met a slightly different set. Same date,
+// same world, two different mornings of awareness.
+//
+// That gap is why a dated summary is useful. It freezes one reader's
+// experience of a moving target, so the frame can be compared later to
+// how the day actually settled, once the corrections stopped arriving.
+//
+// I find it healthy to imagine the reader a week later. Will the frame
+// still make sense? Will the claims still hold? A graphic designed only for
+// the first hour ages badly; one designed to be revisited ages well.
+//
+// So I design for re-reading. Short labels, stable structure, a clear date,
+// and no reliance on the reader having seen the earlier version.
+//
+// Let me turn to the news image specifically and how it differs from a
+// newspaper page or a timeline or a dashboard.
+//
+// A newspaper page is read in sequence over minutes. A news image is
+// glanced at in a feed among many other images, often one-handed, often
+// with the sound off and the caption half-hidden.
+//
+// That context is brutal and clarifying. It forces the image to be
+// self-sufficient. It cannot rely on a previous panel or an intro paragraph.
+// It has to name its subject, its date, and its point in one breath.
+//
+// Self-sufficiency favours a strong title, a clear date, and sections that
+// stand on their own legs. It punishes cleverness that needs context.
+//
+// The feed also favours edges. A frame that bleeds meaning to its border
+// loses that meaning when cropped into a square thumbnail. So I keep the
+// load-bearing content inside a safe inner rectangle and treat the margins
+// as expendable if a platform decides to trim.
+//
+// Now, colour choices again, because they deserve a second pass.
+//
+// I think of a palette as a small vocabulary. A vocabulary with too many
+// words collapses into noise; a vocabulary with too few cannot say anything
+// subtle. Two anchors and an accent is a workable little language.
+//
+// Warm and cool do different jobs. A warm accent pulls attention forward.
+// A cool background pushes content back. Using both is how you build depth
+// without shadows, which matters because heavy shadows age quickly.
+//
+// I avoid pure black text on pure white for long reading, not out of dogma
+// but because the extreme jump tires the eye over a large area. A near-black
+// on a near-white is gentler and reads just as crisp at normal sizes.
+//
+// I also avoid vivid saturated colours behind small text. Saturation bleeds
+// at small sizes, especially on cheap screens, and bleeds are misread as
+// blur, which makes readers distrust the whole frame.
+//
+// Red is a special case. In many news contexts red signals urgency, alarm,
+// or breaking status. Using it as a casual decorative hue spends a signal
+// that the frame may genuinely need later. I ration red carefully.
+//
+// Green and red together are a trap for colour-blind readers. When a frame
+// uses them to encode a binary, roughly one in twelve men may miss it.
+// Redundancy saves you: pair the colour with a shape, a label, or a pattern.
+//
+// Blue is calm and over-used, which makes it a fine base and a poor accent.
+// As an anchor it disappears into the background of most interfaces.
+//
+// Contrast ratios are a floor, not a ceiling. Meeting the floor with a
+// grating combination is still worse than missing it slightly with a
+// comfortable one, though I try not to miss it at all on any real text.
+//
+// Let me say something about layout and colour together, since they are
+// not separate decisions even though we discuss them separately.
+//
+// A colour block is a shape. Where you place shapes is layout.
+// So choosing colours is partly choosing the geometry of the frame.
+// A bright block top-left and a dark block bottom-right create a diagonal
+// the eye follows; that diagonal can either help or fight your reading order.
+//
+// I try to make the colour diagonal agree with the reading order. If the
+// first section is meant to be seen first, its colour should pull the eye
+// there. Colour as a signpost, not as wallpaper.
+//
+// Now, the mechanics of turning all this into a repeatable process.
+//
+// I keep a checklist because memory is unreliable on busy days.
+// The checklist is short. Date present and correct. Headline true and plain.
+// Sections ordered by weight. Palette limited and meaningful. Contrast
+// checked. Margins safe. Attribution included. Timestamp included.
+//
+// A checklist is not bureaucracy; it is a way to offload vigilance so the
+// mind is free for the harder judgement calls that no checklist covers.
+//
+// The hard judgement calls are where a summary earns trust or loses it.
+// Deciding what to leave out is harder than deciding what to include.
+// Inclusion feels generous; omission feels like hiding. But a frame that
+// refuses to omit is a frame that refuses to say anything.
+//
+// Omission done honestly is curation. Omission done quietly is distortion.
+// The difference is whether the frame tells the reader that a selection
+// has happened and roughly by what principle.
+//
+// A line like "selected developments" is a tiny honest flag. It admits
+// that this is a view from a vantage point, not the view from nowhere.
+//
+// The view from nowhere is a fantasy anyway. There is always an editor,
+// a deadline, a platform, a budget of attention. Naming the vantage point
+// is more truthful than pretending there isn't one.
+//
+// Let me reflect on time and dates one more time, because the date is the
+// one element I would defend above all others in a dated summary.
+//
+// Without a date, a summary floats. The reader cannot tell whether it is
+// current, three years stale, or aspirational fiction. The date anchors it
+// to reality and tells the reader how much to price in freshness.
+//
+// A date also disciplines the writer. Committing to the eighteenth of
+// November, 2026 forces me to say only what was knowable by then, or to
+// clearly mark anything that came later. It is a fence I build on purpose.
+//
+// Time zones are the quiet gremlin of dated work. An event at eleven at
+// night in one place is the next morning in another, and a careless frame
+// can put yesterday's news and today's news under the same label.
+//
+// When the audience is global, I lean on saying the date plainly and, where
+// it truly matters, the hour and the zone. Clarity beats brevity here.
+//
+// Let me talk about captions, since they are the connective tissue.
+//
+// A caption is not a repeat of the headline. It is where the frame earns
+// the reader's next ten seconds by adding the one context the headline
+// could not carry.
+//
+// Good captions answer the question the reader is about to ask. If the
+// headline raises "why does this matter," the caption answers it before
+// the reader has to click away and find out somewhere else.
+//
+// I avoid captions that merely restate. Restatement wastes the most
+// valuable small real estate in the entire frame.
+//
+// I also avoid captions that editorialise. A caption that tells the reader
+// how to feel has stopped reporting and started performing.
+//
+// Now let me wander through a few concrete design instincts I have picked
+// up, in no particular order, the way learned habits actually live.
+//
+// If two elements are meant to be grouped, put them closer to each other
+// than to anything else. Proximity is the strongest grouping cue there is,
+// stronger than a shared colour or a shared border.
+//
+// If two elements are meant to be separated, give them a gutter wide enough
+// to be obvious at a glance, not just visible when you pause to check.
+//
+// If something is a label, make it quiet. Labels serve their value by
+// getting out of the way of the thing they label.
+//
+// If something is a value or a headline, make it loud, and make it loud
+// mainly through size and weight rather than through colour alone, so it
+// survives being printed or viewed in grayscale.
+//
+// Test in grayscale at least once. If the frame stops making sense the
+// moment colour is removed, then colour is carrying too much of the load.
+//
+// Test at thumbnail size at least once. If the frame stops making sense
+// when shrunk, then the essential meaning is hiding in the small type.
+//
+// Test with the text blurred slightly. If the shape and rhythm still
+// communicate the hierarchy, the layout is doing its job.
+//
+// These tests are cheap and they catch the failures my eyes skip over when
+// I have been staring at a frame for too long.
+//
+// Let me talk about fatigue, because it is a real design force and an
+// underrated source of errors.
+//
+// After a few hours on one frame, everything looks fine. The eye stops
+// seeing the misalignment and starts defending the choices already made.
+// That is why a second pair of eyes, or a forced break, is not a luxury.
+//
+// The second reader is not there to have taste. They are there to have
+// fresh eyes. The question I ask them is not "do you like it" but "what
+// does it say to you," because that reveals the actual message delivered.
+//
+// If their answer differs from my intent, the frame has a bug. Bugs in
+// meaning are more serious than bugs in pixels, and harder to spot.
+//
+// Let me also note the difference between a mistake and a judgement call.
+// A dated frame can be right or wrong; it can also be defensible or not.
+// A typo is just wrong. A choice to lead with one story over another can
+// be right or wrong depending on the day, and it is fair to argue about it.
+//
+// I try not to defend the indefensible by calling it a judgement call.
+// That is a tempting move and it corrodes the trust the frame depends on.
+//
+// Now let me collect some thoughts on the news image as a recurring format,
+// because the eighteenth of November does not exist in isolation.
+//
+// A daily image builds a habit. Readers learn the shape of the frame and
+// come back to it like a familiar column. Habit is a gift, and it comes
+// with an obligation not to betray the expectations the habit created.
+//
+// A series also lets you show change over time. The same structure on a
+// different day makes the difference visible, which is often more
+// informative than either frame alone.
+//
+// Consistency in a series is not sameness. The palette can shift, the
+// emphasis can move, the sections can reorder. What stays fixed is the
+// grammar, so the reader always knows how to read the sentence.
+//
+// I like to think a good series teaches the reader a tiny language without
+// ever announcing that a lesson is happening.
+//
+// Let me return to the eighteenth of November, 2026 and consider what a
+// frame for that day would have to be careful about, in the abstract.
+//
+// Any day contains stories that flatter one reading and stories that
+// complicate it. A frame that includes only the flattering ones is a
+// campaign, not a summary. I try to include at least one detail that makes
+// the frame's own thesis a little less comfortable.
+//
+// Insecurity inside the frame is a feature. It signals that the reader is
+// being trusted with the whole picture, corners included.
+//
+// A day also contains stories whose meaning is unclear until later. If I
+// frame those as settled, I have manufactured a certainty the day did not
+// contain. Better to name the uncertainty than to paper over it.
+//
+// So a phrase like "the picture was still forming" is not weakness. It is
+// the most accurate thing a morning frame can say about a night event.
+//
+// Let me now say something about the human side of the news image, which
+// is easy to lose among grids and palettes.
+//
+// Behind every bullet in a dated summary there are real people, real
+// losses, real gains, real anxiety, real relief. The compression of a
+// frame is a form of respect for the reader's time, but it must never
+// become a form of disrespect for the subjects of the day.
+//
+// I keep that in mind when I choose verbs. Passive voice can hide who did
+// what; it can also gently hold a tragedy without pinning blame prematurely.
+// The choice depends on what is actually known, not on what sounds smooth.
+//
+// I try never to make a disaster look decorative. A red accent near a
+// story about harm should be doing informational work, never aesthetic
+// work. If it cannot, it should not be there.
+//
+// Let me talk about the mechanics of assembling the frame once the content
+// is decided, since that is where structure meets taste.
+//
+// I start with the largest type and work down. If the biggest element is
+// right, the rest has a spine to align to. If I start with the details, I
+// end up with a frame whose parts are individually fine and collectively
+// adrift.
+//
+// Then I set the grid. Then I place the sections. Then I check the reading
+// order by asking what my eye does first, second, third. If that order is
+// not the order I intended, the layout is wrong even if it is pretty.
+//
+// Then the colour. Then the contrast. Then the thumbnail test. Then a
+// break, then a fresh look, then the corrections.
+//
+// None of this is glamorous. Almost all of the quality of a frame lives in
+// these unglamorous passes rather than in the first inspired sketch.
+//
+// Let me say a word about tools and the temptation they create.
+//
+// A rich tool makes it easy to add a shadow, a gradient, an icon, a shape,
+// a texture. Each is harmless alone and corrosive in pile. The restraint
+// to not add is the most valuable feature a designer can develop.
+//
+// Every element should justify its existence against an alternative world
+// in which it is absent. If the frame is not worse without it, remove it.
+//
+// I apply the same test to words. A label that could be deleted without
+// losing meaning should be deleted, and then the frame is quieter and the
+// remaining meaning louder for the same cost.
+//
+// Let me consider the reader one final time, in the many forms they take.
+//
+// One reader is an expert who will test every claim against their own
+// knowledge and will notice the first exaggeration. Design for them; they
+// are the readers who keep you honest when no one is watching.
+//
+// One reader is a newcomer who knows nothing about the day and needs the
+// frame to be a doorway. Design for them too; they are the reason the
+// frame exists.
+//
+// One reader is tired, distracted, and only half looking. Design for them
+// most of all, because the frame's job is to still work at half attention.
+//
+// A frame that serves the newcomer and the expert and the tired reader at
+// once is doing something genuinely difficult, and that difficulty is the
+// whole reason a dated news image is worth making carefully.
+//
+// Let me write down a few closing principles so I can find them later.
+//
+// Truth outranks polish. If they conflict, polish loses, every time.
+// Structure outranks style. A good grid with plain colour beats a bad grid
+// with a beautiful palette.
+// Clarity outranks cleverness. The reader should never have to decode.
+// Restraint outranks completeness. A smaller true frame is a better frame.
+// The date outranks everything decorative. It is the anchor of the claim.
+// The reader's trust is the asset. Every choice either grows it or spends it.
+//
+// The eighteenth of November, 2026 will fade into the long line of days
+// that history files and forgets, and that is fine. What survives is not
+// this particular frame but the habit of making frames honestly: picking a
+// moment, gathering its facts, compressing without distorting, and handing
+// the reader a picture they can trust for as long as the day is worth
+// remembering. That habit is the real subject of all these remarks, and
+// the date is only the occasion that prompted them.
+//
+// END OF NOTES.
+// ============================================================================
 // Every generated news graphic begins as an idea that has to be translated
 // into pixels, and this stage is where that translation finally becomes a
 // durable file instead of an in-memory arrangement of shapes and text.
